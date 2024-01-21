@@ -15,7 +15,7 @@ class BaseDataLoader(DataLoader):
         self.batch_idx = 0
         self.n_samples = len(dataset)
 
-        self.sampler, self.valid_sampler = self._split_sampler(self.validation_split)
+        self.sampler, self.valid_sampler = self._split_sampler(self.validation_split) # type: ignore
 
         self.init_kwargs = {
             'dataset': dataset,
@@ -45,8 +45,8 @@ class BaseDataLoader(DataLoader):
         valid_idx = idx_full[0:len_valid]
         train_idx = np.delete(idx_full, np.arange(0, len_valid))
 
-        train_sampler = SubsetRandomSampler(train_idx)
-        valid_sampler = SubsetRandomSampler(valid_idx)
+        train_sampler = SubsetRandomSampler(train_idx) # type: ignore
+        valid_sampler = SubsetRandomSampler(valid_idx) # type: ignore
 
         # turn off shuffle option which is mutually exclusive with sampler
         self.shuffle = False
