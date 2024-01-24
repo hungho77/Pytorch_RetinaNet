@@ -8,7 +8,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from retinanet import create_loader, create_dataset
-from retinanet.data import resolve_input_config, SkipSubset
+from retinanet.datasets import resolve_input_config, SkipSubset
 
 
 
@@ -50,8 +50,8 @@ if __name__ == "__main__":
         collate_fn=None,
     )
 
-    # if args.val_skip > 1:
-    #     dataset_eval = SkipSubset(dataset_eval, args.val_skip)
+    if 2 > 1:
+        dataset_eval = SkipSubset(dataset_eval, 2)
     loader_eval = create_loader(
         dataset_eval,
         input_size=224,
