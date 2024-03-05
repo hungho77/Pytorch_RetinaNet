@@ -26,7 +26,6 @@ class BufferList(nn.Module):
         return iter(self._buffers.values())
     
 
-
 def _broadcast_params(params, num_features, name) -> List[List[float]]:
     """
     If one size (or aspect ratio) is specified and there are multiple feature
@@ -128,7 +127,7 @@ class AnchorGenerator(nn.Module):
         for size in sizes:
             area = size ** 2.0
             for aspect_ratio in aspect_ratios:
-                w = math.sqrt(area / aspect_ratios)
+                w = math.sqrt(area / aspect_ratio)
                 h = aspect_ratio * w
                 x0, y0, x1, y1 = -w / 2.0, -h / 2.0, w / 2.0, h / 2.0
                 anchors.append([x0, y0, x1, y1])
@@ -197,11 +196,11 @@ class AnchorGenerator(nn.Module):
 
         return anchors
     
-    def forward(self, images: ImageList, feature_maps) List[Tensor] -> List[Tensor]:
+    def forward(self, images: ImageList, feature_maps: List[Tensor]) -> List[Tensor]:
         """Generate `Anchors` for each `Feature Map`.
 
         Args:
-            2. images  (ImageList)  : Structure that holds a list of images (of possibly
+            2. images (ImageList)  : Structure that holds a list of images (of possibly
                                     varying sizes) as a single tensor.
                                     This works by padding the images to the same size,
                                     and storing in a field the original sizes of each image.

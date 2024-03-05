@@ -16,7 +16,7 @@ if __name__ == "__main__":
     
     # input_config = resolve_input_config(args, model_config=model_config)
 
-    dataset_train, dataset_eval = create_dataset('coco2017', '/home/hunght/RetinaNet/data/small_coco')
+    dataset_train, dataset_eval = create_dataset('coco2017', '/workspace/hunght25/Pytorch_RetinaNet/sample/small_coco')
 
     # # setup labeler in loader/collate_fn if not enabled in the model bench
     # labeler = None

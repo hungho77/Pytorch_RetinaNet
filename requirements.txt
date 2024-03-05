@@ -1,5 +1,6 @@
-torch>=1.1
-torchvision
-numpy
+pytorch-lightning
+pycocotools
+albumentations
+matplotlib
+omegaconf
 tqdm
-tensorboard>=1.14
